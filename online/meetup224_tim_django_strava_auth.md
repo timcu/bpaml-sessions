@@ -32,7 +32,7 @@ If you are following the script manually
 - Create a new PyCharm project `django_bpaml_strava_site`
   - Make sure you use a new virtual environment either venv, conda depending on your python installation
 - Open Terminal window
-- `pip install django-allauth[socialaccount]` This will also install Django, allauth with Google Auth and other dependencies
+- `pip install django-allauth[socialaccount]` This will also install Django, allauth with Strava Auth and other dependencies
 - `django-admin startproject django_bpaml_strava_site`  # instead of `mysite` in tutorial
 - PyCharm project and Django both have concept of "Project". We need to move all files from django project into pycharm project (up one directory)
   - Move `manage.py` up a folder
