@@ -881,7 +881,8 @@ Git ignore _version.py and build artefacts by adding to .gitignore
 
 ```txt
 django_bpaml_event/_version.py
-/build/
+/dist/
+/django_bpaml_event.egg-info/
 ```
 
 Install python build system
@@ -947,10 +948,6 @@ django-admin startproject bpaml_project  # creates manage.py and settings
 cp ../client_secret.json bpaml_project/  # make google client secrets available to app
 cp ../settings.py bpaml_project/bpaml_project/  # replace sample settings with our settings
 cp ../urls.py bpaml_project/bpaml_project/  # replace sample urls with our urls
-# Set up database
-cd bpaml_project
-python manage.py migrate
-python manage.py createsuperuser
 ```
 
 Update bpaml_project/settings.py for new deployment environment
@@ -962,6 +959,15 @@ ALLOWED_HOSTS = ["192.168.0.1"]  # set to your IP address and or fully qualified
 ROOT_URLCONF = 'bpaml_project.urls'  # was django_bpaml_site.urls
 WSGI_APPLICATION = 'bpaml_project.wsgi.application'  # was django_bpaml_site.wsgi.application
 ```
+
+Set up database
+
+```bash
+cd bpaml_project
+python manage.py migrate
+python manage.py createsuperuser
+```
+
 
 As sudo user.
 
@@ -1010,6 +1016,7 @@ sudo ln -s /home/djangoer/venv-bpaml-event/lib/python3.11/site-packages/django/c
 sudo ln -s /home/djangoer/venv-bpaml-event/lib/python3.11/site-packages/django_bpaml_event/static/django_bpaml_event /var/www/bpaml.pythonator.com/static/django_bpaml_event
 
 # Enable systemd service
+sudo systemctl daemon-reload
 sudo systemctl enable bpaml-event.service  # start automatically after reboot
 sudo systemctl start bpaml-event.service   # start now
 sudo systemctl status bpaml-event.service  # check 
