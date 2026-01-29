@@ -27,7 +27,7 @@ To start where we left off in part 1, check out the source code from GitHub into
 - `git checkout step08`
 
 
-- Create a new PyCharm project `django_bpaml_strava_site`
+- Open as a PyCharm project `django_bpaml_strava_site`
   - Make sure you use a new virtual environment either venv, conda depending on your python installation
 - Open Terminal window
 - `pip install -r requirements.txt` This will also install Django, allauth with Strava Auth and other dependencies
